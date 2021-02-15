@@ -1,5 +1,5 @@
 body{
-	margin: 30px 350px;
+	margin: 30px 500px 0px 500px;
 }
 
 h1{
@@ -35,7 +35,7 @@ h2{
 }
 
 .info{
-	margin-right: 70px;
+	margin-right: 100px;
 }
 .tempeture{
 	display: flex;
@@ -49,7 +49,7 @@ h2{
 	outline: 2px solid #768085;
 	text-align: center;
 	padding-top: 30px;
-	margin-right: 70px;
+	margin-right: 100px;
 }
 
 .tempeture p{
@@ -59,12 +59,107 @@ h2{
 	margin: 0;
 }
 
-li{
+dl{
+	width: 700px;
 	font-family: 'Roboto', sans-serif;
-	background-color:#A7AFB1;
+	font-weight: 500;
+	margin-top: 10px;
 	color: white;
-	width: 300px;
-	height: 30px;
-	margin-bottom: 7px;
 }
+
+dt{
+	background-color:#A7AFB1;
+	float: left;
+	height: 25px;
+	margin-bottom: 7px;
+	padding-top: 7px;
+	padding-left: 10px;
+
+}
+
+dd{
+	background-color:#A7AFB1;
+	width: 50%;
+	height: 25px;
+	margin-bottom: 7px;
+	padding-top: 7px;
+	padding-right: 10px;
+	text-align: end;
+	color: #D4DBDD;
+}
+
+input{
+	background-color: #F1F1F1;
+	color: #A5ABAE;
+	border-radius: 3px;
+	border: none;
+	padding-left: 10px;
+	width: 200px;
+	height: 40px;
+	margin-left:435px;
+}
+
+.like{
+	margin-top: 20px;
+}
+.title{
+	display: flex;
+	margin-bottom: 20px;
+}
+
+.like button{
+	width:30px;
+	height: 30px;
+	border-radius: 50%;
+	background: #708288;
+	border: none;
+	margin-left: 10px;
+	color: white;
+	font-size: 15px;
+
+}
+.title button{
+	color: white;
+	font-size: 20px;
+	margin-right: 0px;
+	margin-top: 5px;
+}
+.grid-info{
+	display: grid;
+	grid-template-columns:  400px 400px;
+	column-gap: 45px;
+}
+
+.grid-city{
+	display: flex;
+}
+
+h3{
+	color: #748287;
+	font-size: 24px;
+	font-family: 'Roboto', sans-serif;
+	margin:0;
+	margin-right: 25px;
+}
+
+.grid-city p{
+	font-family: 'Roboto', sans-serif;
+	color: #748287;
+	font-size: 24px;
+	margin: 0;
+	margin-right: 20px;
+}
+
+.picture-city{
+	width: 45px;
+	height: 30px;
+	color: #748287;
+	font-size: 10px;
+	outline: 2px solid #768085;
+	text-align: center;	
+	padding-top: 5px;
+	margin-right: 140px;
+}
+
+
 
