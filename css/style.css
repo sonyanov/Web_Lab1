@@ -1,0 +1,70 @@
+body{
+	margin: 30px 350px;
+}
+
+h1{
+	color: #748287;
+	font-size: 31px;
+	font-family: 'Roboto', sans-serif;
+}
+
+h2{
+	color: #889295;
+	font-size: 30px;
+	font-weight: 200;
+	margin: 0;
+}
+
+.header{
+	display: flex;
+	align-items: center;
+}
+
+.header button{
+	color:  #939EA5;
+	border: none;
+	border-radius: 5px;
+	width: 220px;
+	height: 40px;
+	background-color:#C9D2D7;
+	margin-left: 120px;
+}
+
+.data{
+	display: flex;
+}
+
+.info{
+	margin-right: 70px;
+}
+.tempeture{
+	display: flex;
+}
+
+.picture{
+	width: 100px;
+	height: 70px;
+	color: #748287;
+	font-size: 17px;
+	outline: 2px solid #768085;
+	text-align: center;
+	padding-top: 30px;
+	margin-right: 70px;
+}
+
+.tempeture p{
+	font-family: 'Roboto', sans-serif;
+	color: #748287;
+	font-size: 90px;
+	margin: 0;
+}
+
+li{
+	font-family: 'Roboto', sans-serif;
+	background-color:#A7AFB1;
+	color: white;
+	width: 300px;
+	height: 30px;
+	margin-bottom: 7px;
+}
+
