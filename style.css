@@ -1,0 +1,171 @@
+body{
+	margin: 30px auto 0px;
+	width: 950px;
+}
+
+h1{
+	color: #748287;
+	font-size: 31px;
+	font-family: 'Roboto', sans-serif;
+}
+
+h2{
+	color: #889295;
+	font-size: 30px;
+	font-weight: 200;
+	margin: 0;
+}
+
+.header{
+	display: flex;
+	align-items: center;
+}
+
+.header button{
+	color:  #939EA5;
+	border: none;
+	border-radius: 5px;
+	width: 220px;
+	height: 40px;
+	background-color:#C9D2D7;
+	margin-left: 65px;
+}
+
+.data{
+	display: flex;
+}
+
+.info{
+	width: 500px;
+}
+
+.list{
+	width: 450px;
+}
+.tempeture{
+	display: flex;
+}
+
+.picture{
+	width: 100px;
+	height: 70px;
+	color: #748287;
+	font-size: 17px;
+	outline: 2px solid #768085;
+	text-align: center;
+	padding-top: 30px;
+	margin-right: 100px;
+}
+
+.tempeture p{
+	font-family: 'Roboto', sans-serif;
+	color: #748287;
+	font-size: 90px;
+	margin: 0;
+}
+
+dl{
+	width: 450px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
+	margin-top: 10px;
+	color: white;
+}
+
+dt{
+	width: 100px;
+	background-color:#A7AFB1;
+	float: left;
+	margin-bottom: 7px;
+	padding-left: 10px;
+	padding-top: 9px;
+	height: 30px;
+}
+
+dd{
+
+	background-color:#A7AFB1;
+	height: 30px;
+	margin-bottom: 7px;
+	padding-right: 10px;
+	text-align: end;
+	color: #D4DBDD;
+	padding-top: 9px;
+}
+
+input{
+	background-color: #F1F1F1;
+	color: #A5ABAE;
+	border-radius: 3px;
+	border: none;
+	padding-left: 10px;
+	width: 200px;
+	height: 40px;
+}
+
+.like{
+	margin-top: 20px;
+}
+.title{
+	margin-bottom: 20px;
+	width: 100%;
+	display: flex;
+}
+.title div:last-child{
+	margin-left: 545px;
+}
+
+.like button{
+	width:40px;
+	height: 40px;
+	border-radius: 50%;
+	background: #708288;
+	border: none;
+	color: white;
+	font-size: 20px;
+
+}
+.title button{
+	color: white;
+	font-size: 25px;
+	margin-left: 10px;
+}
+.grid-info{
+	display: grid;
+	grid-template-columns:  450px 450px;
+	column-gap: 50px;
+}
+
+.grid-city{
+	display: flex;
+}
+
+h3{
+	color: #748287;
+	font-size: 24px;
+	font-family: 'Roboto', sans-serif;
+	margin:0;
+	margin-right: 30px;
+}
+
+.grid-city p{
+	font-family: 'Roboto', sans-serif;
+	color: #748287;
+	font-size: 24px;
+	margin: 0;
+	margin-right: 30px;
+}
+
+.picture-city{
+	width: 45px;
+	height: 30px;
+	color: #748287;
+	font-size: 10px;
+	outline: 2px solid #768085;
+	text-align: center;	
+	padding-top: 5px;
+	margin-right: 176px;
+}
+
+
+
