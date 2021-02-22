@@ -169,3 +169,77 @@ h3{
 
 
 
+@media screen and (max-width: 970px){
+
+	body{
+		width: 500px;
+	}
+
+	.data{
+		display: block;
+		
+	}
+
+	.grid-info{
+		
+		grid-template-columns:  450px;
+	}
+
+	.title div:last-child{
+		margin-left: 45px;
+	}
+}
+
+@media screen and (max-width: 520px){
+
+	body{
+		width: 300px;
+	}
+
+	.info{
+		width: 300px;
+	}
+
+	.list{
+		width: 300px;
+	}
+
+	.grid-info{
+		
+		grid-template-columns:  300px;
+	}
+
+	.title div:last-child{
+		margin-left: 45px;
+	}
+
+	.header button{
+		width: 90px;
+		margin-left: 35px;
+	}
+
+	dl{
+		width: 300px;
+	}
+
+	dd, dt{
+		height: 45px;
+	}
+
+	.picture{
+		margin-right: 55px;
+	}
+
+	.picture-city{
+		margin-right: 25px;
+	}
+
+	.title{
+		display: block;
+	}
+
+	.title div:last-child{
+		margin-left: 0px;
+	}
+
+}
