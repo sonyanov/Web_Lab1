@@ -1,5 +1,3 @@
-# Web_Lab
-
 ## Github pages
 https://sonyanov.github.io/Web_Lab1/
 
