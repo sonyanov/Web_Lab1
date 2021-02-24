@@ -1,5 +1,5 @@
 ## Github pages
-https://sonyanov.github.io/Web_Lab1/
+https://sonyanov.github.io/Web_Lab_6sem/
 
 ## Лабы
 | # Лабороторной | Содержание                                   | Дедлайны  |
