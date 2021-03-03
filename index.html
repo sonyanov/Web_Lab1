@@ -9,125 +9,230 @@
 <body>
 <header class="header">
 	<h2>Погода здесь</h2>
-	<button>Обновить геолокацию<i class="fas fa-sync-alt"></i></button>
+	<button><span>Обновить геолокацию</span><i class="fas fa-sync-alt"></i></button>
 </header>
 <main>
-	<section class="data">
-		<div class="info">
+	<section class="location-weather">
+		<div class="location-info-city">
 			<h1>Saint Petersburg</h1>
-			<div class="tempeture">
-				<div class="picture">Иконка погоды</div>
+			<div class="temperature-picture_weather">
+				<div class="picture_weather">Иконка погоды</div>
 				<p>8°C</p>
 			</div>
 		</div>
-		<div class="list">
-			<dl>
-				<dt>Ветер</dt><dd>Moderate breeze, 6.0 m/s, North-northwest</dd>
-				<dt>Облачность</dt><dd>Broken clouds</dd>
-				<dt>Давление</dt><dd>1013 hpa</dd>
-				<dt>Влажность</dt><dd>52%</dd>
-				<dt>Координаты</dt><dd>[59.88, 30.42]</dd>
-			</dl>
+		<div class="location-info-weather">
+			<ul>
+				<li>
+					<h4>Ветер</h4>
+					<p>Moderate breeze, 6.0 m/s, North-northwest</p>
+				</li>
+				<li>
+					<h4>Облачность</h4>
+					<p>Broken clouds</p>
+				</li>
+				<li>
+					<h4>Давление</h4>
+					<p>1013 hpa</p>
+				</li>
+				<li>
+					<h4>Влажность</h4>
+					<p>52%</p>
+				</li>
+				<li>
+					<h4>Координаты</h4>
+					<p>[59.88, 30.42]</p>
+				</li>
+			</ul>
 		</div>
 	</section>
-	<section class="like">
-		<div class="title">
+	<section class="favorites-location">
+		<div class="title-favorites-location">
 			<h2>Избранное</h2>
-			<div class="right-title">
-				<input type="text" name="city" value="Добавить новый город">
+			<div class="add-favorite-location">
+				<input type="text" name="city" placeholder="Добавить новый город">
 				<button><i class="fas fa-plus"></i></button>
 			</div>
 		</div>
-		<div class="grid-info">
-			<div class="list">
-				<div class="grid-city">
+		<div class="grid-favorites-location">
+			<div class="location-info-weather">
+				<div class="location-info-favorites-city">
 					<h3>Moscow</h3>
 					<p>8°C</p>
-					<div class="picture-city">Иконка погоды</div>
+					<div class="picture_weather-favorites">Иконка погоды</div>
 					<button><i class="fas fa-times"></i></button>
 				</div>
-				<dl>
-					<dt>Ветер</dt><dd>Moderate breeze, 6.0 m/s, North-northwest</dd>
-					<dt>Облачность</dt><dd>Broken clouds</dd>
-					<dt>Давление</dt><dd>1013 hpa</dd>
-					<dt>Влажность</dt><dd>52%</dd>
-					<dt>Координаты</dt><dd>[59.88, 30.42]</dd>
-				</dl>
+				<ul>
+				<li>
+					<h4>Ветер</h4>
+					<p>Moderate breeze, 6.0 m/s, North-northwest</p>
+				</li>
+				<li>
+					<h4>Облачность</h4>
+					<p>Broken clouds</p>
+				</li>
+				<li>
+					<h4>Давление</h4>
+					<p>1013 hpa</p>
+				</li>
+				<li>
+					<h4>Влажность</h4>
+					<p>52%</p>
+				</li>
+				<li>
+					<h4>Координаты</h4>
+					<p>[59.88, 30.42]</p>
+				</li>
+			</ul>
 			</div>
-			<div class="list">
-				<div class="grid-city">
+			<div class="location-info-weather">
+				<div class="location-info-favorites-city">
 					<h3>Moscow</h3>
 					<p>8°C</p>
-					<div class="picture-city">Иконка погоды</div>
+					<div class="picture_weather-favorites">Иконка погоды</div>
 					<button><i class="fas fa-times"></i></button>
 				</div>
-				<dl>
-					<dt>Ветер</dt><dd>Moderate breeze, 6.0 m/s, North-northwest</dd>
-					<dt>Облачность</dt><dd>Broken clouds</dd>
-					<dt>Давление</dt><dd>1013 hpa</dd>
-					<dt>Влажность</dt><dd>52%</dd>
-					<dt>Координаты</dt><dd>[59.88, 30.42]</dd>
-				</dl>
+				<ul>
+				<li>
+					<h4>Ветер</h4>
+					<p>Moderate breeze, 6.0 m/s, North-northwest</p>
+				</li>
+				<li>
+					<h4>Облачность</h4>
+					<p>Broken clouds</p>
+				</li>
+				<li>
+					<h4>Давление</h4>
+					<p>1013 hpa</p>
+				</li>
+				<li>
+					<h4>Влажность</h4>
+					<p>52%</p>
+				</li>
+				<li>
+					<h4>Координаты</h4>
+					<p>[59.88, 30.42]</p>
+				</li>
+			</ul>
 			</div>
-			<div class="list">
-				<div class="grid-city">
+			<div class="location-info-weather">
+				<div class="location-info-favorites-city">
 					<h3>Moscow</h3>
 					<p>8°C</p>
-					<div class="picture-city">Иконка погоды</div>
+					<div class="picture_weather-favorites">Иконка погоды</div>
 					<button><i class="fas fa-times"></i></button>
 				</div>
-				<dl>
-					<dt>Ветер</dt><dd>Moderate breeze, 6.0 m/s, North-northwest</dd>
-					<dt>Облачность</dt><dd>Broken clouds</dd>
-					<dt>Давление</dt><dd>1013 hpa</dd>
-					<dt>Влажность</dt><dd>52%</dd>
-					<dt>Координаты</dt><dd>[59.88, 30.42]</dd>
-				</dl>
+				<ul>
+				<li>
+					<h4>Ветер</h4>
+					<p>Moderate breeze, 6.0 m/s, North-northwest</p>
+				</li>
+				<li>
+					<h4>Облачность</h4>
+					<p>Broken clouds</p>
+				</li>
+				<li>
+					<h4>Давление</h4>
+					<p>1013 hpa</p>
+				</li>
+				<li>
+					<h4>Влажность</h4>
+					<p>52%</p>
+				</li>
+				<li>
+					<h4>Координаты</h4>
+					<p>[59.88, 30.42]</p>
+				</li>
+			</ul>
 			</div>
-			<div class="list">
-				<div class="grid-city">
+			<div class="location-info-weather">
+				<div class="location-info-favorites-city">
 					<h3>Moscow</h3>
 					<p>8°C</p>
-					<div class="picture-city">Иконка погоды</div>
+					<div class="picture_weather-favorites">Иконка погоды</div>
 					<button><i class="fas fa-times"></i></button>
 				</div>
-				<dl>
-					<dt>Ветер</dt><dd>Moderate breeze, 6.0 m/s, North-northwest</dd>
-					<dt>Облачность</dt><dd>Broken clouds</dd>
-					<dt>Давление</dt><dd>1013 hpa</dd>
-					<dt>Влажность</dt><dd>52%</dd>
-					<dt>Координаты</dt><dd>[59.88, 30.42]</dd>
-				</dl>
+				<ul>
+				<li>
+					<h4>Ветер</h4>
+					<p>Moderate breeze, 6.0 m/s, North-northwest</p>
+				</li>
+				<li>
+					<h4>Облачность</h4>
+					<p>Broken clouds</p>
+				</li>
+				<li>
+					<h4>Давление</h4>
+					<p>1013 hpa</p>
+				</li>
+				<li>
+					<h4>Влажность</h4>
+					<p>52%</p>
+				</li>
+				<li>
+					<h4>Координаты</h4>
+					<p>[59.88, 30.42]</p>
+				</li>
+			</ul>
 			</div>
-			<div class="list">
-				<div class="grid-city">
+			<div class="location-info-weather">
+				<div class="location-info-favorites-city">
 					<h3>Moscow</h3>
 					<p>8°C</p>
-					<div class="picture-city">Иконка погоды</div>
+					<div class="picture_weather-favorites">Иконка погоды</div>
 					<button><i class="fas fa-times"></i></button>
 				</div>
-				<dl>
-					<dt>Ветер</dt><dd>Moderate breeze, 6.0 m/s, North-northwest</dd>
-					<dt>Облачность</dt><dd>Broken clouds</dd>
-					<dt>Давление</dt><dd>1013 hpa</dd>
-					<dt>Влажность</dt><dd>52%</dd>
-					<dt>Координаты</dt><dd>[59.88, 30.42]</dd>
-				</dl>
+				<ul>
+				<li>
+					<h4>Ветер</h4>
+					<p>Moderate breeze, 6.0 m/s, North-northwest</p>
+				</li>
+				<li>
+					<h4>Облачность</h4>
+					<p>Broken clouds</p>
+				</li>
+				<li>
+					<h4>Давление</h4>
+					<p>1013 hpa</p>
+				</li>
+				<li>
+					<h4>Влажность</h4>
+					<p>52%</p>
+				</li>
+				<li>
+					<h4>Координаты</h4>
+					<p>[59.88, 30.42]</p>
+				</li>
+			</ul>
 			</div>
-			<div class="list">
-				<div class="grid-city">
+			<div class="location-info-weather">
+				<div class="location-info-favorites-city">
 					<h3>Moscow</h3>
 					<p>8°C</p>
-					<div class="picture-city">Иконка погоды</div>
+					<div class="picture_weather-favorites">Иконка погоды</div>
 					<button><i class="fas fa-times"></i></button>
 				</div>
-				<dl>
-					<dt>Ветер</dt><dd>Moderate breeze, 6.0 m/s, North-northwest</dd>
-					<dt>Облачность</dt><dd>Broken clouds</dd>
-					<dt>Давление</dt><dd>1013 hpa</dd>
-					<dt>Влажность</dt><dd>52%</dd>
-					<dt>Координаты</dt><dd>[59.88, 30.42]</dd>
-				</dl>
+				<ul>
+				<li>
+					<h4>Ветер</h4>
+					<p>Moderate breeze, 6.0 m/s, North-northwest</p>
+				</li>
+				<li>
+					<h4>Облачность</h4>
+					<p>Broken clouds</p>
+				</li>
+				<li>
+					<h4>Давление</h4>
+					<p>1013 hpa</p>
+				</li>
+				<li>
+					<h4>Влажность</h4>
+					<p>52%</p>
+				</li>
+				<li>
+					<h4>Координаты</h4>
+					<p>[59.88, 30.42]</p>
+				</li>
+			</ul>
 			</div>
 		</div>
 	</section>

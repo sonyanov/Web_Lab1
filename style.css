@@ -16,6 +16,55 @@ h2{
 	margin: 0;
 }
 
+h3{
+	color: #748287;
+	font-size: 24px;
+	font-family: 'Roboto', sans-serif;
+	margin:0;
+	margin-right: 30px;
+}
+
+ul{
+	width: 450px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
+	margin-top: 10px;
+	color: white;
+	padding: 0;
+}
+
+h4{
+	margin: 0;
+	margin-top: 5px;
+	margin-right: 10px;
+}
+p{
+	margin: 0;
+	margin-top: 5px;
+	text-align: right;
+}
+
+li{
+	background-color:#A7AFB1;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: #D4DBDD;
+	display: flex;
+	justify-content: space-between;
+	height: 30px;
+	margin-bottom: 7px;
+}
+
+input{
+	background-color: #F1F1F1;
+	color: #A5ABAE;
+	border-radius: 3px;
+	border: none;
+	padding-left: 10px;
+	width: 200px;
+	height: 38px;
+}
+
 .header{
 	display: flex;
 	align-items: center;
@@ -35,22 +84,22 @@ h2{
 	display: none;
 }
 
-.data{
+.location-weather{
 	display: flex;
 }
 
-.info{
+.location-info-city{
 	width: 500px;
 }
 
-.list{
+.location-info-weather{
 	width: 450px;
 }
-.tempeture{
+.temperature-picture_weather{
 	display: flex;
 }
 
-.picture{
+.picture_weather{
 	width: 100px;
 	height: 70px;
 	color: #748287;
@@ -61,69 +110,30 @@ h2{
 	margin-right: 100px;
 }
 
-.tempeture p{
+.temperature-picture_weather p{
 	font-family: 'Roboto', sans-serif;
 	color: #748287;
 	font-size: 90px;
 	margin: 0;
 }
 
-dl{
-	width: 450px;
-	font-family: 'Roboto', sans-serif;
-	font-weight: 500;
-	margin-top: 10px;
-	color: white;
-}
-
-dt{
-	width: 100px;
-	background-color:#A7AFB1;
-	float: left;
-	margin-bottom: 7px;
-	padding-left: 10px;
-	padding-top: 9px;
-	height: 30px;
-}
-
-dd{
-
-	background-color:#A7AFB1;
-	height: 30px;
-	margin-bottom: 7px;
-	padding-right: 10px;
-	text-align: end;
-	color: #D4DBDD;
-	padding-top: 9px;
-}
-
-input{
-	background-color: #F1F1F1;
-	color: #A5ABAE;
-	border-radius: 3px;
-	border: none;
-	padding-left: 10px;
-	width: 200px;
-	height: 38px;
-}
-
-.like{
+.favorites-location{
 	margin-top: 20px;
 }
-.title{
+.title-favorites-location{
 	margin-bottom: 20px;
 	width: 100%;
 	display: flex;
 }
-.title div:last-child{
+.title-favorites-location div:last-child{
 	margin-left: 550px;
 }
 
-.right-title{
+.add-favorite-location{
 	display: flex;
 }
 
-.like button{
+.favorites-location button{
 	width:40px;
 	height: 40px;
 	border-radius: 50%;
@@ -133,28 +143,20 @@ input{
 	font-size: 20px;
 
 }
-.title button{
+.title-favorites-location button{
 	margin-left: 10px;
 }
-.grid-info{
+.grid-favorites-location{
 	display: grid;
 	grid-template-columns:  450px 450px;
 	column-gap: 50px;
 }
 
-.grid-city{
+.location-info-favorites-city{
 	display: flex;
 }
 
-h3{
-	color: #748287;
-	font-size: 24px;
-	font-family: 'Roboto', sans-serif;
-	margin:0;
-	margin-right: 30px;
-}
-
-.grid-city p{
+.location-info-favorites-city p{
 	font-family: 'Roboto', sans-serif;
 	color: #748287;
 	font-size: 24px;
@@ -162,7 +164,7 @@ h3{
 	margin-right: 30px;
 }
 
-.picture-city{
+.picture_weather-favorites{
 	width: 45px;
 	height: 30px;
 	color: #748287;
@@ -181,18 +183,21 @@ h3{
 		width: 450px;
 	}
 
-	.info{
+	.location-info-city{
 		width: 450px;
 	}
 
-	.data{
+	.location-weather{
 		display: block;
+	}
+
+	.header span{
+		display: none;
 	}
 
 	.header button{
 		width: 90px;
 		margin-left: 193px;
-		font-size: 0;
 	}
 
 	.fa-sync-alt{
@@ -200,11 +205,11 @@ h3{
         font-size: 26px;
     }
 
-	.grid-info{
+	.grid-favorites-location{
 		grid-template-columns:  450px;
 	}
 
-	.title div:last-child{
+	.title-favorites-location div:last-child{
 		margin-left: 50px;
 	}
 }
@@ -223,20 +228,28 @@ h3{
 		margin-right: 37px;
 	}
 
-	.info{
+	ul{
 		width: 300px;
 	}
 
-	.list{
+	li{
+		height: 45px;
+	}
+
+	.location-info-city{
 		width: 300px;
 	}
 
-	.grid-info{
+	.location-info-weather{
+		width: 300px;
+	}
+
+	.grid-favorites-location{
 		
 		grid-template-columns:  300px;
 	}
 
-	.title div:last-child{
+	.title-favorites-location div:last-child{
 		margin-left: 45px;
 	}
 
@@ -245,27 +258,21 @@ h3{
 		margin-left: 43px;
 	}
 
-	dl{
-		width: 300px;
-	}
+	
 
-	dd, dt{
-		height: 45px;
-	}
-
-	.picture{
+	.picture_weather{
 		margin-right: 55px;
 	}
 
-	.picture-city{
+	.picture_weather-favorites{
 		margin-right: 25px;
 	}
 
-	.title{
+	.title-favorites-location{
 		display: block;
 	}
 
-	.title div:last-child{
+	.title-favorites-location div:last-child{
 		margin-left: 0px;
 	}
 
