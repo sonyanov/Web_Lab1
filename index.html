@@ -6,41 +6,44 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 	<meta name="viewport" content="width=device-width" />
+	
 </head>
 <body>
 <header class="header">
 	<h2>Погода здесь</h2>
-	<button><span>Обновить геолокацию</span><i class="fas fa-sync-alt"></i></button>
+	<button onclick="set_geo()"><span>Обновить геолокацию</span><i class="fas fa-sync-alt"></i></button>
 </header>
 <main>
 	<section class="location-weather">
 		<div class="location-info-city">
-			<h1>Saint Petersburg</h1>
+			<h1></h1>
 			<div class="temperature-picture_weather">
-				<div class="picture_weather">Иконка погоды</div>
-				<p>8°C</p>
+				<div class="picture_weather">
+					<img></img>
+				</div>
+				<p></p>
 			</div>
 		</div>
 		<ul class="location-info-weather">
-			<li>
+			<li class="wind">
 				<h4>Ветер</h4>
-				<p>Moderate breeze, 6.0 m/s, North-northwest</p>
+				<p></p>
 			</li>
-			<li>
+			<li class="description">
 				<h4>Облачность</h4>
-				<p>Broken clouds</p>
+				<p></p>
 			</li>
-			<li>
+			<li class="pressure">
 				<h4>Давление</h4>
-				<p>1013 hpa</p>
+				<p></p>
 			</li>
-			<li>
+			<li class="humidity">
 				<h4>Влажность</h4>
-				<p>52%</p>
+				<p></p>
 			</li>
-			<li>
+			<li class="coords">
 				<h4>Координаты</h4>
-				<p>[59.88, 30.42]</p>
+				<p></p>
 			</li>
 		</ul>
 	</section>
@@ -53,128 +56,39 @@
 			</div>
 		</div>
 		<div class="grid-favorites-location">
-			<section class="location-info-weather-grid">
+			<template class="location-info-weather-grid">
 				<div class="location-info-favorites-city">
-					<h3>Moscow</h3>
-					<p>8°C</p>
-					<div class="picture_weather-favorites">Иконка погоды</div>
+					<h3></h3>
+					<p></p>
+					<img class="picture_weather-favorites"></img>
 					<button><i class="fas fa-times"></i></button>
 				</div>
 				<ul>
 					<li>
 						<h4>Ветер</h4>
-						<p>Moderate breeze, 6.0 m/s, North-northwest</p>
+						<p></p>
 					</li>
 					<li>
 						<h4>Облачность</h4>
-						<p>Broken clouds</p>
+						<p></p>
 					</li>
 					<li>
 						<h4>Давление</h4>
-						<p>1013 hpa</p>
+						<p></p>
 					</li>
 					<li>
 						<h4>Влажность</h4>
-						<p>52%</p>
+						<p></p>
 					</li>
 					<li>
 						<h4>Координаты</h4>
-						<p>[59.88, 30.42]</p>
+						<p></p>
 					</li>
 				</ul>
-			</section>
-			<section class="location-info-weather-grid">
-				<div class="location-info-favorites-city">
-					<h3>Moscow</h3>
-					<p>8°C</p>
-					<div class="picture_weather-favorites">Иконка погоды</div>
-					<button><i class="fas fa-times"></i></button>
-				</div>
-				<ul>
-					<li>
-						<h4>Ветер</h4>
-						<p>Moderate breeze, 6.0 m/s, North-northwest</p>
-					</li>
-					<li>
-						<h4>Облачность</h4>
-						<p>Broken clouds</p>
-					</li>
-					<li>
-						<h4>Давление</h4>
-						<p>1013 hpa</p>
-					</li>
-					<li>
-						<h4>Влажность</h4>
-						<p>52%</p>
-					</li>
-					<li>
-						<h4>Координаты</h4>
-						<p>[59.88, 30.42]</p>
-					</li>
-				</ul>
-			</section>
-			<section class="location-info-weather-grid">
-				<div class="location-info-favorites-city">
-					<h3>Moscow</h3>
-					<p>8°C</p>
-					<div class="picture_weather-favorites">Иконка погоды</div>
-					<button><i class="fas fa-times"></i></button>
-				</div>
-				<ul>
-					<li>
-						<h4>Ветер</h4>
-						<p>Moderate breeze, 6.0 m/s, North-northwest</p>
-					</li>
-					<li>
-						<h4>Облачность</h4>
-						<p>Broken clouds</p>
-					</li>
-					<li>
-						<h4>Давление</h4>
-						<p>1013 hpa</p>
-					</li>
-					<li>
-						<h4>Влажность</h4>
-						<p>52%</p>
-					</li>
-					<li>
-						<h4>Координаты</h4>
-						<p>[59.88, 30.42]</p>
-					</li>
-				</ul>
-			</section>
-			<section class="location-info-weather-grid">
-				<div class="location-info-favorites-city">
-					<h3>Moscow</h3>
-					<p>8°C</p>
-					<div class="picture_weather-favorites">Иконка погоды</div>
-					<button><i class="fas fa-times"></i></button>
-				</div>
-				<ul>
-					<li>
-						<h4>Ветер</h4>
-						<p>Moderate breeze, 6.0 m/s, North-northwest</p>
-					</li>
-					<li>
-						<h4>Облачность</h4>
-						<p>Broken clouds</p>
-					</li>
-					<li>
-						<h4>Давление</h4>
-						<p>1013 hpa</p>
-					</li>
-					<li>
-						<h4>Влажность</h4>
-						<p>52%</p>
-					</li>
-					<li>
-						<h4>Координаты</h4>
-						<p>[59.88, 30.42]</p>
-					</li>
-				</ul>
-			</section>		
+			</template>
 		</div>
 	</section>
 </main>
 </body>
+<script type="text/javascript" src="weather.js"></script>
 </html>

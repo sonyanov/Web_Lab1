@@ -32,12 +32,14 @@ h4{
 	margin: 0;
 	margin-top: 5px;
 	margin-right: 10px;
+	margin-bottom: 5px;
 }
 
 p{
 	margin: 0;
 	margin-top: 5px;
 	text-align: right;
+	margin-bottom: 5px;
 }
 
 input{
@@ -57,7 +59,6 @@ input{
 	color: white;
 	display: flex;
 	justify-content: space-between;
-	height: 30px;
 	margin-bottom: 7px;
 }
 
@@ -101,14 +102,9 @@ input{
 	display: flex;
 }
 
-.picture_weather{
+.picture_weather img{
 	width: 100px;
-	height: 70px;
-	color: #748287;
-	font-size: 17px;
-	outline: 2px solid #768085;
-	text-align: center;
-	padding-top: 30px;
+	height: 100px;
 	margin-right: 100px;
 }
 
@@ -132,6 +128,7 @@ input{
 
 .add-favorite-location{
 	display: flex;
+	justify-content: space-between;
 }
 
 .favorites-location button{
@@ -155,6 +152,7 @@ input{
 
 .location-info-favorites-city{
 	display: flex;
+	justify-content: space-between;
 }
 
 .location-info-favorites-city p{
@@ -183,7 +181,6 @@ input{
 	color: white;
 	display: flex;
 	justify-content: space-between;
-	height: 30px;
 	margin-bottom: 7px;
 }
 
@@ -256,13 +253,6 @@ input{
 		width: 300px;
 	}
 
-	.location-info-weather li{
-		height: 45px;
-	}
-
-	.location-info-weather-grid li{
-		height: 45px;
-	}
 
 	.location-info-city{
 		width: 300px;
@@ -286,8 +276,8 @@ input{
 
 	
 
-	.picture_weather{
-		margin-right: 55px;
+	.picture_weather img{
+		margin-right: 30px;
 	}
 
 	.picture_weather-favorites{
