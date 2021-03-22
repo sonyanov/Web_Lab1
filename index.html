@@ -11,7 +11,7 @@
 <body>
 <header class="header">
 	<h2>Погода здесь</h2>
-	<button onclick="set_geo()"><span>Обновить геолокацию</span><i class="fas fa-sync-alt"></i></button>
+	<button><span>Обновить геолокацию</span><i class="fas fa-sync-alt"></i></button>
 </header>
 <main>
 	<section class="location-weather">
@@ -51,40 +51,44 @@
 		<div class="title-favorites-location">
 			<h2>Избранное</h2>
 			<div class="add-favorite-location">
-				<input type="text" name="city" placeholder="Добавить новый город">
+				<input type="text" name="city" value="" placeholder="Добавить новый город">
 				<button><i class="fas fa-plus"></i></button>
 			</div>
 		</div>
 		<div class="grid-favorites-location">
-			<template class="location-info-weather-grid">
-				<div class="location-info-favorites-city">
-					<h3></h3>
-					<p></p>
-					<img class="picture_weather-favorites"></img>
-					<button><i class="fas fa-times"></i></button>
+			<template class="location-info-weather-grid" id="location-info-weather-grid">
+				<div id="clone">
+					<div class="location-info-favorites-city">
+						<h3></h3>
+						<p></p>
+						<div class="picture_weather-favorites">
+							<img></img>
+						</div>
+						<button><i class="fas fa-times"></i></button>
+					</div>
+					<ul>
+						<li class="favcity_wind">
+							<h4>Ветер</h4>
+							<p></p>
+						</li>
+						<li class="favcity_description">
+							<h4>Облачность</h4>
+							<p></p>
+						</li>
+						<li class="favcity_pressure">
+							<h4>Давление</h4>
+							<p></p>
+						</li>
+						<li class="favcity_humidity">
+							<h4>Влажность</h4>
+							<p></p>
+						</li>
+						<li class="favcity_coords">
+							<h4>Координаты</h4>
+							<p></p>
+						</li>
+					</ul>
 				</div>
-				<ul>
-					<li>
-						<h4>Ветер</h4>
-						<p></p>
-					</li>
-					<li>
-						<h4>Облачность</h4>
-						<p></p>
-					</li>
-					<li>
-						<h4>Давление</h4>
-						<p></p>
-					</li>
-					<li>
-						<h4>Влажность</h4>
-						<p></p>
-					</li>
-					<li>
-						<h4>Координаты</h4>
-						<p></p>
-					</li>
-				</ul>
 			</template>
 		</div>
 	</section>
