@@ -23,6 +23,7 @@ document.querySelector(".header button").onclick = () => {
 
 navigator.geolocation.getCurrentPosition(setPosition, showError);
 
+
 function setPosition(position) {
 	let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
@@ -70,6 +71,9 @@ function get_weather(latitude, longitude) {
 function add_favorites() {
 
 	let city = document.querySelector(".add-favorite-location input").value;
+
+	localStorage.setItem(city, city);
+
 	let api_city = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`;
 
 	fetch(api_city)  .then( function(response){
@@ -114,7 +118,6 @@ function displayweather() {
 	humElement.innerHTML = `${weather.humidity} %`;
 }
 
-
 //add info about favorites city
 function displayweatherfavcity() {
 
@@ -149,12 +152,78 @@ function displayweatherfavcity() {
 	grig_location.appendChild(clone);
 
 	clone.querySelector('.location-info-favorites-city button').onclick = () => {
-    	grig_location.removeChild(clone);  
+    	grig_location.removeChild(clone);
+    	localStorage.removeItem(clone.querySelector('.location-info-favorites-city h3').innerHTML)
 	};
 }
 
+//add default city
 function default_add(){
+	const default_city = ['Moscow', 'Madrid', 'London', 'New York'];
 
+	if(localStorage.length == 0){
+
+		for (let i = 0; i < default_city.length; i++){
+
+			localStorage.setItem(default_city[i], default_city[i]);
+
+			let api_city = `http://api.openweathermap.org/data/2.5/weather?q=${localStorage.key(i)}&appid=${key}`;
+		
+			fetch(api_city)  .then( function(response){
+
+							let data = response.json();
+							return data;
+							})
+						.then( function(data){
+
+							weather.temperature.value = Math.floor(data.main.temp - Kelvin);//температура
+							weather.description = data.weather[0].description;//облачность
+							weather.iconId = data.weather[0].icon;//иконка
+							weather.city = data.name//название города
+							weather.pressure = data.main.pressure;//давление
+							weather.humidity = data.main.humidity;//влажность
+							weather.speed = data.wind.speed;//скорость
+							weather.deg = data.wind.deg;//направление
+							weather.lat = data.coord.lat;
+							weather.lon = data.coord.lon;
+
+						})
+						.then( function(){
+
+							displayweatherfavcity();
+						})
+		}
+	}
+	else {
+		for (let i = 0; i < localStorage.length; i++) {
+
+		let api_city = `http://api.openweathermap.org/data/2.5/weather?q=${localStorage.key(i)}&appid=${key}`;
+		
+		fetch(api_city)  .then( function(response){
+
+						let data = response.json();
+						return data;
+						})
+					.then( function(data){
+
+						weather.temperature.value = Math.floor(data.main.temp - Kelvin);//температура
+						weather.description = data.weather[0].description;//облачность
+						weather.iconId = data.weather[0].icon;//иконка
+						weather.city = data.name//название города
+						weather.pressure = data.main.pressure;//давление
+						weather.humidity = data.main.humidity;//влажность
+						weather.speed = data.wind.speed;//скорость
+						weather.deg = data.wind.deg;//направление
+						weather.lat = data.coord.lat;
+						weather.lon = data.coord.lon;
+
+					})
+					.then( function(){
+
+						displayweatherfavcity();
+					})
+		}
+	}
 }
 
 //CONVERT WIND DEGREE TO TEXT INFO
@@ -181,11 +250,9 @@ function convert_deg() {
 	return weather.deg;
 }
 
+default_add();
 
 //TO DO:
-// -ховер для кнопок
-// -пофикисть кнопки на 320
 // -сохранять добавленные города
-// -прописать дефолт города
 // -прописать блоки при загрузке
 // -обновление геолокации
