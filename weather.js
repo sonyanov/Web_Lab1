@@ -172,7 +172,7 @@ function default_add(){
 	else {
 		for (let i = 0; i < localStorage.length; i++) {
 
-			let api_city = `http://api.openweathermap.org/data/2.5/weather?q=${localStorage.key(i)}&appid=${key}`;
+			let api_city = `https://api.openweathermap.org/data/2.5/weather?q=${localStorage.key(i)}&appid=${key}`;
 			API_city(api_city);
 		}
 	}
