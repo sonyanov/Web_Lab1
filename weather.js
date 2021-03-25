@@ -39,7 +39,7 @@ function showError(error) {
 //get geolocation weather
 function get_weather(latitude, longitude) {
 
-	let api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
+	let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
 
 	fetch(api)  .then( function(response){
 
@@ -98,7 +98,7 @@ function add_favorites() {
 
 	let city = document.querySelector(".add-favorite-location input").value;
 	localStorage.setItem(city, city);
-	let api_city = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`;
+	let api_city = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`;
 	API_city(api_city);
 }
 				
@@ -162,11 +162,10 @@ function default_add(){
 	const default_city = ['Moscow', 'Madrid', 'London', 'New York'];
 
 	if(localStorage.length == 0){
-
 		for (let i = 0; i < default_city.length; i++){
 
 			localStorage.setItem(default_city[i], default_city[i]);
-			let api_city = `http://api.openweathermap.org/data/2.5/weather?q=${localStorage.key(i)}&appid=${key}`;
+			let api_city = `https://api.openweathermap.org/data/2.5/weather?q=${localStorage.key(i)}&appid=${key}`;
 			API_city(api_city);
 		}
 	}
