@@ -9,7 +9,6 @@ const coordElement = document.querySelector(".coords p");
 
 const weather = {};
 const key = "cddaa27d924b1fe838386ed5cc22fde2"
-const Kelvin = 273;
 
 weather.temperature = {
 	unit : "celsius"
@@ -25,21 +24,19 @@ navigator.geolocation.getCurrentPosition(setPosition, showError);
 function setPosition(position) {
 	let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
-    coordElement.innerHTML = `[${latitude.toFixed(2)};${longitude.toFixed(2)}]`;
     get_weather(latitude, longitude);
 }
 
 function showError(error) {
 	const def_latitude = 55.753215;
 	const def_longitude = 37.622504;
-	coordElement.innerHTML = `[${def_latitude.toFixed(2)};${def_longitude.toFixed(2)}]`;
 	get_weather(def_latitude, def_longitude);
 }
 
 //get geolocation weather
 function get_weather(latitude, longitude) {
 
-	let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
+	let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}&units=metric`;
 
 	fetch(api)  .then( function(response){
 
@@ -48,7 +45,7 @@ function get_weather(latitude, longitude) {
 					})
 				.then( function(data){
 
-					weather.temperature.value = Math.floor(data.main.temp - Kelvin);//температура
+					weather.temperature.value = Math.round(data.main.temp);//температура
 					weather.description = data.weather[0].description;//облачность
 					weather.iconId = data.weather[0].icon;//иконка
 					weather.city = data.name//название города
@@ -56,6 +53,8 @@ function get_weather(latitude, longitude) {
 					weather.humidity = data.main.humidity;//влажность
 					weather.speed = data.wind.speed;//скорость
 					weather.deg = data.wind.deg;//направление
+					weather.lat = data.coord.lat;
+					weather.lon = data.coord.lon;
 
 				})
 				.then( function(){
@@ -68,14 +67,14 @@ function get_weather(latitude, longitude) {
 //add info about favorites city
 function API_city(api_city) {
 		
-		fetch(api_city)  .then( function(response){
+	fetch(api_city) .then( function(response){
 
 						let data = response.json();
 						return data;
 						})
 					.then( function(data){
 
-						weather.temperature.value = Math.floor(data.main.temp - Kelvin);//температура
+						weather.temperature.value = Math.round(data.main.temp);//температура
 						weather.description = data.weather[0].description;//облачность
 						weather.iconId = data.weather[0].icon;//иконка
 						weather.city = data.name//название города
@@ -98,7 +97,7 @@ function add_favorites() {
 
 	let city = document.querySelector(".add-favorite-location input").value;
 	localStorage.setItem(city, city);
-	let api_city = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`;
+	let api_city = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
 	API_city(api_city);
 }
 				
@@ -116,6 +115,8 @@ function displayweather() {
 
 	presElement.innerHTML = `${weather.pressure} hpa`;
 	humElement.innerHTML = `${weather.humidity} %`;
+
+	coordElement.innerHTML = `[${weather.lat.toFixed(2)};${weather.lon.toFixed(2)}]`;
 }
 
 //add info about favorites city
@@ -161,20 +162,14 @@ function displayweatherfavcity() {
 function default_add(){
 	const default_city = ['Moscow', 'Madrid', 'London', 'New York'];
 
-	if(localStorage.length == 0){
-		for (let i = 0; i < default_city.length; i++){
-
+	if(localStorage.length == 0)
+		for (let i = 0; i < default_city.length; i++)
 			localStorage.setItem(default_city[i], default_city[i]);
-			let api_city = `https://api.openweathermap.org/data/2.5/weather?q=${localStorage.key(i)}&appid=${key}`;
-			API_city(api_city);
-		}
-	}
-	else {
-		for (let i = 0; i < localStorage.length; i++) {
+				
+	for (let i = 0; i < localStorage.length; i++) {
 
-			let api_city = `https://api.openweathermap.org/data/2.5/weather?q=${localStorage.key(i)}&appid=${key}`;
-			API_city(api_city);
-		}
+		let api_city = `https://api.openweathermap.org/data/2.5/weather?q=${localStorage.key(i)}&appid=${key}&units=metric`;
+		API_city(api_city);
 	}
 }
 
