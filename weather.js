@@ -8,7 +8,6 @@ const humElement = document.querySelector(".humidity p");
 const coordElement = document.querySelector(".coords p");
 
 const weather = {};
-
 const key = "cddaa27d924b1fe838386ed5cc22fde2"
 const Kelvin = 273;
 
@@ -22,7 +21,6 @@ document.querySelector(".header button").onclick = () => {
 }
 
 navigator.geolocation.getCurrentPosition(setPosition, showError);
-
 
 function setPosition(position) {
 	let latitude = position.coords.latitude;
@@ -67,41 +65,43 @@ function get_weather(latitude, longitude) {
 
 }
 
+//add info about favorites city
+function API_city(api_city) {
+		
+		fetch(api_city)  .then( function(response){
+
+						let data = response.json();
+						return data;
+						})
+					.then( function(data){
+
+						weather.temperature.value = Math.floor(data.main.temp - Kelvin);//температура
+						weather.description = data.weather[0].description;//облачность
+						weather.iconId = data.weather[0].icon;//иконка
+						weather.city = data.name//название города
+						weather.pressure = data.main.pressure;//давление
+						weather.humidity = data.main.humidity;//влажность
+						weather.speed = data.wind.speed;//скорость
+						weather.deg = data.wind.deg;//направление
+						weather.lat = data.coord.lat;
+						weather.lon = data.coord.lon;
+
+					})
+					.then( function(){
+
+						displayweatherfavcity();
+					})
+}
+
 //add favorites city 
 function add_favorites() {
 
 	let city = document.querySelector(".add-favorite-location input").value;
-
 	localStorage.setItem(city, city);
-
 	let api_city = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`;
-
-	fetch(api_city)  .then( function(response){
-
-					let data = response.json();
-					return data;
-					})
-				.then( function(data){
-
-					weather.temperature.value = Math.floor(data.main.temp - Kelvin);//температура
-					weather.description = data.weather[0].description;//облачность
-					weather.iconId = data.weather[0].icon;//иконка
-					weather.city = data.name//название города
-					weather.pressure = data.main.pressure;//давление
-					weather.humidity = data.main.humidity;//влажность
-					weather.speed = data.wind.speed;//скорость
-					weather.deg = data.wind.deg;//направление
-					weather.lat = data.coord.lat;
-					weather.lon = data.coord.lon;
-
-				})
-				.then( function(){
-
-					displayweatherfavcity();
-				})
-
+	API_city(api_city);
 }
-
+				
 //add info about geolocation place
 function displayweather() {
 	
@@ -166,69 +166,21 @@ function default_add(){
 		for (let i = 0; i < default_city.length; i++){
 
 			localStorage.setItem(default_city[i], default_city[i]);
-
 			let api_city = `http://api.openweathermap.org/data/2.5/weather?q=${localStorage.key(i)}&appid=${key}`;
-		
-			fetch(api_city)  .then( function(response){
-
-							let data = response.json();
-							return data;
-							})
-						.then( function(data){
-
-							weather.temperature.value = Math.floor(data.main.temp - Kelvin);//температура
-							weather.description = data.weather[0].description;//облачность
-							weather.iconId = data.weather[0].icon;//иконка
-							weather.city = data.name//название города
-							weather.pressure = data.main.pressure;//давление
-							weather.humidity = data.main.humidity;//влажность
-							weather.speed = data.wind.speed;//скорость
-							weather.deg = data.wind.deg;//направление
-							weather.lat = data.coord.lat;
-							weather.lon = data.coord.lon;
-
-						})
-						.then( function(){
-
-							displayweatherfavcity();
-						})
+			API_city(api_city);
 		}
 	}
 	else {
 		for (let i = 0; i < localStorage.length; i++) {
 
-		let api_city = `http://api.openweathermap.org/data/2.5/weather?q=${localStorage.key(i)}&appid=${key}`;
-		
-		fetch(api_city)  .then( function(response){
-
-						let data = response.json();
-						return data;
-						})
-					.then( function(data){
-
-						weather.temperature.value = Math.floor(data.main.temp - Kelvin);//температура
-						weather.description = data.weather[0].description;//облачность
-						weather.iconId = data.weather[0].icon;//иконка
-						weather.city = data.name//название города
-						weather.pressure = data.main.pressure;//давление
-						weather.humidity = data.main.humidity;//влажность
-						weather.speed = data.wind.speed;//скорость
-						weather.deg = data.wind.deg;//направление
-						weather.lat = data.coord.lat;
-						weather.lon = data.coord.lon;
-
-					})
-					.then( function(){
-
-						displayweatherfavcity();
-					})
+			let api_city = `http://api.openweathermap.org/data/2.5/weather?q=${localStorage.key(i)}&appid=${key}`;
+			API_city(api_city);
 		}
 	}
 }
 
 //CONVERT WIND DEGREE TO TEXT INFO
 function convert_deg() {
-
 
 	if (weather.deg <= 21 || weather.deg >= 337)
 		weather.deg = "North";
@@ -251,8 +203,3 @@ function convert_deg() {
 }
 
 default_add();
-
-//TO DO:
-// -сохранять добавленные города
-// -прописать блоки при загрузке
-// -обновление геолокации
