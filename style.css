@@ -90,7 +90,7 @@ input{
 }
 
 .location-weather{
-	display: flex;
+	display: none;
 }
 
 .location-info-city{
@@ -144,7 +144,7 @@ input{
 	margin-left: 10px;
 }
 .grid-favorites-location{
-	display: grid;
+	display: none;
 	grid-template-columns:  450px 450px;
 	column-gap: 50px;
 }
@@ -190,7 +190,15 @@ input{
 	
 }
 
+.loader{
+	display: flex;
+	align-items: center;
+}
 
+.loader img{
+	height: 50px;
+	margin-right: 20px;
+}
 
 @media  (max-width: 970px){
 

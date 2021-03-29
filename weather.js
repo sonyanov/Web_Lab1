@@ -19,15 +19,15 @@ document.querySelector(".header button").onclick = () => {
 	navigator.geolocation.getCurrentPosition(setPosition, showError);
 }
 
-navigator.geolocation.getCurrentPosition(setPosition, showError);
-
 function setPosition(position) {
+	loading_city();
 	let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
     get_weather(latitude, longitude);
 }
 
 function showError(error) {
+	loading_city();
 	const def_latitude = 55.753215;
 	const def_longitude = 37.622504;
 	get_weather(def_latitude, def_longitude);
@@ -74,6 +74,12 @@ function API_city(api_city) {
 						})
 					.then( function(data){
 
+						if(data.cod != 404)
+							localStorage.setItem(data.name, data.name);
+						else{
+							 window.alert(`${data.message}`);
+						}
+
 						weather.temperature.value = Math.round(data.main.temp);//температура
 						weather.description = data.weather[0].description;//облачность
 						weather.iconId = data.weather[0].icon;//иконка
@@ -96,9 +102,13 @@ function API_city(api_city) {
 function add_favorites() {
 
 	let city = document.querySelector(".add-favorite-location input").value;
-	localStorage.setItem(city, city);
-	let api_city = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
-	API_city(api_city);
+
+	if(city != localStorage.getItem(city)){
+		
+		let api_city = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
+		API_city(api_city);
+	}
+	
 }
 				
 //add info about geolocation place
@@ -196,4 +206,23 @@ function convert_deg() {
 	return weather.deg;
 }
 
-default_add();
+function loading_city(){
+
+	var loader_location = document.querySelector("#location-weather");
+	var loader_grid = document.querySelector(".grid-favorites-location");
+	var loader = document.querySelector(".loader");
+
+	loader.style.display = "none";
+
+	loader_location.style.display = "flex";
+	loader_grid.style.display = "grid";
+
+}
+
+function main(){
+
+	navigator.geolocation.getCurrentPosition(setPosition, showError);
+	default_add();
+}
+
+main();
