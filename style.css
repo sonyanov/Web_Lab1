@@ -91,6 +91,8 @@ input{
 
 .location-weather{
 	display: none;
+	grid-template-columns:  450px 450px;
+	column-gap: 50px;
 }
 
 .location-info-city{
@@ -103,7 +105,7 @@ input{
 
 .picture_weather img{
 	width: 100px;
-	height: 100px;
+	
 	margin-right: 100px;
 }
 
@@ -117,6 +119,7 @@ input{
 .favorites-location{
 	margin-top: 20px;
 }
+
 .title-favorites-location{
 	margin-bottom: 20px;
 	width: 100%;
@@ -215,7 +218,7 @@ input{
 	}
 
 	.location-weather{
-		display: block;
+		grid-template-columns:  450px;
 	}
 
 	.header span{
@@ -256,12 +259,7 @@ input{
 		width: 300px;
 	}
 
-
 	.location-info-city{
-		width: 300px;
-	}
-
-	.location-info-weather{
 		width: 300px;
 	}
 
@@ -270,14 +268,10 @@ input{
 		grid-template-columns:  300px;
 	}
 
-	
-
 	.header button{
 		width: 90px;
 		margin-left: 43px;
 	}
-
-	
 
 	.picture_weather img{
 		margin-right: 30px;
