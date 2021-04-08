@@ -115,15 +115,23 @@ function getWeather(data){
 //Получение данных по координатам
 async function getDatabyCoords(latitude, longitude){
   const data = await getResponseByCoords(latitude, longitude);
-  await getWeather(data);
+  if (data.cod == "404") window.alert(data.message);
+  else await getWeather(data);
   displayWeatheByCoords();
 }
 
 //Получение данных по городу
 async function getDatabyCity(city){
   const data = await getResponseByCity(city);
-  await getWeather(data);
-  displayWeatherByCity();
+
+  if(data.id != localStorage.getItem(data.name)){
+    localStorage.setItem(data.name, data.id);
+    if (data.cod == "404") window.alert(data.message);
+    else await getWeather(data);
+
+    displayWeatherByCity();
+  }
+  else window.alert("Такой город уже указан")
 }
 
 // Добавление избранных городов
@@ -160,7 +168,6 @@ async function showError() {
   loadingCity();
 }
 
-
 // Добавление часто встречаемыхь городов
 async function defaultAdd() {
   const defCity = ['Moscow', 'Madrid', 'London', 'New York'];
@@ -168,9 +175,12 @@ async function defaultAdd() {
 
   if (localStorage.length === 0) 
     for (let i = 0; i < defCity.length; i += 1) localStorage.setItem(defCity[i], defKey[i]);
-  
+
   for (let i = 0; i < localStorage.length; i += 1) {
-    await getDatabyCity(localStorage.key(i));
+    const data = await getResponseByCity(localStorage.key(i));
+    if (data.cod == "404") window.alert(data.message);
+    else await getWeather(data);
+    displayWeatherByCity();
   }
 }
 
