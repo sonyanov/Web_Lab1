@@ -147,10 +147,11 @@ input{
 	margin-left: 10px;
 }
 .grid-favorites-location{
-	display: none;
+	display: grid;
 	grid-template-columns:  450px 450px;
 	column-gap: 50px;
 }
+
 
 .location-info-favorites-city{
 	display: flex;
@@ -168,6 +169,7 @@ input{
 .location-info-weather-grid{
 	margin-top: 10px;
 }
+
 
 .grid-favorites-location ul{
 	font-family: 'Roboto', sans-serif;
@@ -196,9 +198,20 @@ input{
 .loader{
 	display: flex;
 	align-items: center;
+	height: 206px;
 }
 
 .loader img{
+	height: 50px;
+	margin-right: 20px;
+}
+
+.loader-city{
+	display: flex;
+	align-items: center;
+}
+
+.loader-city img{
 	height: 50px;
 	margin-right: 20px;
 }
@@ -238,6 +251,11 @@ input{
 	.grid-favorites-location{
 		grid-template-columns:  450px;
 	}
+
+	.loader{
+		height: 403px;
+	}
+
 
 }
 

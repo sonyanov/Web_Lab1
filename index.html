@@ -6,7 +6,6 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 	<meta name="viewport" content="width=device-width" />
-	
 </head>
 <body>
 <header class="header">
@@ -55,13 +54,18 @@
 		<div class="title-favorites-location">
 			<h2>Избранное</h2>
 			<div class="add-favorite-location">
-				<input type="text" name="city" value="" placeholder="Добавить новый город">
+				<input class="input" type="text" name="city" value="" placeholder="Добавить новый город">
 				<button><i class="fas fa-plus"></i></button>
 			</div>
 		</div>
 		<div class="grid-favorites-location">
 			<template class="location-info-weather-grid" id="location-info-weather-grid">
-				<div id="clone">
+				
+			<div class="clone" id="clone">
+				<div class="loader-city" id="loader-city">
+					<img src="png/loader.gif">
+					<h1>Загрузка данных</h1>
+				</div>
 					<div class="location-info-favorites-city">
 						<h3></h3>
 						<p></p>
@@ -70,7 +74,7 @@
 						</div>
 						<button><i class="fas fa-times"></i></button>
 					</div>
-					<ul>
+					<ul class="ul-fav-city">
 						<li class="favcity_wind">
 							<h4>Ветер</h4>
 							<p></p>
@@ -98,5 +102,11 @@
 	</section>
 </main>
 </body>
-<script type="text/javascript" src="weather.js"></script>
+<!-- <script type="text/javascript" src="weather.js"></script> -->
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/geolocation.js"></script>
+<script type="text/javascript" src="js/loading.js"></script>
+<script type="text/javascript" src="js/getter.js"></script>
+<script type="text/javascript" src="js/display.js"></script>
+<script type="text/javascript" src="js/add.js"></script>
 </html>

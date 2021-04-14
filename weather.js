@@ -5,7 +5,9 @@ const api = 'https://api.openweathermap.org/data/2.5/weather?';
 weather.temperature = {
   unit: 'celsius',
 };
-
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 // Преобразование направление ветра
 function convertDeg() {
   if (weather.deg <= 21 || weather.deg >= 337) { weather.deg = 'North'; }
@@ -74,9 +76,24 @@ function displayWeatherByCity() {
 
   favcoordElement.innerHTML = `[${weather.lat.toFixed(2)};${weather.lon.toFixed(2)}]`;
 
-  const clone = template.content.querySelector('div').cloneNode(true);
+  const clone = template.content.querySelector('.clone').cloneNode(true);
   const gridLocation = document.querySelector('.grid-favorites-location');
+
   gridLocation.appendChild(clone);
+
+  const loaderGrid =clone.querySelector('.loader-city');
+  const div = clone.querySelector('.location-info-favorites-city')
+  const ul = clone.querySelector('ul');
+
+  loaderGrid.style.display = 'flex';
+  ul.style.display = 'none';
+  div.style.display ='none';
+  
+  sleep(1000).then(() => {
+    ul.style.display = 'block'
+    div.style.display ='flex';
+    loaderGrid.style.display = 'none';
+  })
 
   clone.querySelector('.location-info-favorites-city button').onclick = () => {
     
@@ -124,14 +141,15 @@ async function getDatabyCoords(latitude, longitude){
 async function getDatabyCity(city){
   const data = await getResponseByCity(city);
 
-  if(data.id != localStorage.getItem(data.name)){
+  if(data.id != localStorage.getItem(data.name) ){
     localStorage.setItem(data.name, data.id);
     if (data.cod == "404") window.alert(data.message);
     else await getWeather(data);
 
     displayWeatherByCity();
   }
-  else window.alert("Такой город уже указан")
+  else if(data.cod == "404") window.alert(data.message);
+      else window.alert("Такой город уже указан")
 }
 
 // Добавление избранных городов
@@ -143,13 +161,18 @@ function addFavorites() {
 //Заставка на загрузку данных
 function loadingCity() {
   const loaderLocation = document.querySelector('.location-weather');
-  const loaderGrid = document.querySelector('.grid-favorites-location');
+  const loader = document.querySelector('.loader');
+  loader.style.display = 'none';
+  loaderLocation.style.display = 'grid';
+}
+
+function loading(){
+  const loaderLocation = document.querySelector('.location-weather');
   const loader = document.querySelector('.loader');
 
-  loader.style.display = 'none';
-
-  loaderLocation.style.display = 'grid';
-  loaderGrid.style.display = 'grid';
+  loader.style.display = 'flex';
+  loaderLocation.style.display = 'none';
+  
 }
 
 //Случай разрешения доступа геолокации
@@ -176,18 +199,40 @@ async function defaultAdd() {
   if (localStorage.length === 0) 
     for (let i = 0; i < defCity.length; i += 1) localStorage.setItem(defCity[i], defKey[i]);
 
-  for (let i = 0; i < localStorage.length; i += 1) {
-    const data = await getResponseByCity(localStorage.key(i));
+  let data = await Promise.all(Object.entries(localStorage).map((tuple) => {
+    return getResponseByCity(tuple[0]);
+  }))
+
+  for (let i = 0; i < data.length; i+=1){
     if (data.cod == "404") window.alert(data.message);
-    else await getWeather(data);
-    displayWeatherByCity();
+    else {
+      getWeather(data[i]);
+      await displayWeatherByCity();
+    }
   }
 }
 
-navigator.geolocation.getCurrentPosition(setPosition, showError);
-defaultAdd();
+function pressEnter() {
 
-document.querySelector('.add-favorite-location button').onclick = addFavorites;
-document.querySelector('.header button').onclick = () => {
+  document.querySelector('.input').addEventListener('keypress',
+      function (e) {
+        if (e.key === 'Enter' && document.querySelector('.input').value !== "") {
+          addFavorites();
+        }
+      });
+}
+
+async function main(){
+  defaultAdd();
   navigator.geolocation.getCurrentPosition(setPosition, showError);
-};
+  pressEnter();
+
+  document.querySelector('.add-favorite-location button').onclick = addFavorites;
+  document.querySelector('.header button').onclick = () => {
+    loading();
+    navigator.geolocation.getCurrentPosition(setPosition, showError);
+  };
+}
+
+main();
+
