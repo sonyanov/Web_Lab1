@@ -1,6 +1,9 @@
 ## Github pages
 https://sonyanov.github.io/Web_Lab_6sem/
 
+## Репозиторий
+https://github.com/sonyanov/Web-Lab-6sem-server
+
 ## Лабы
 | # Лабороторной | Содержание                                   | Дедлайны  |
 |:--------------:| -------------------------------------------- |:---------:|
