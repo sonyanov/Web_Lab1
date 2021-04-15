@@ -1,5 +1,3 @@
-
-
 window.onload = function () {
 	defaultAdd();
   	navigator.geolocation.getCurrentPosition(setPosition, showError);
