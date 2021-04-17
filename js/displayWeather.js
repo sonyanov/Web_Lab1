@@ -83,7 +83,7 @@ function displayWeatherByCity() {
   ul.style.display = 'none';
   div.style.display ='none';
   
-  sleep(500).then(() => {
+  sleep(20000).then(() => {
     ul.style.display = 'block'
     div.style.display ='flex';
     loaderGrid.style.display = 'none';
