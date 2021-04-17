@@ -21,7 +21,8 @@ async function defaultAdd() {
 
 // Добавление избранных городов
 function addFavorites() {
-  const city = document.querySelector('.add-favorite-location input').value;
+  const city = document.querySelector('.add-favorite-location input').value.trim();
+  document.querySelector('.add-favorite-location input').value = '';
   getDatabyCity(city);
 }
 

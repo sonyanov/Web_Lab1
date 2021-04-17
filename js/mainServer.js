@@ -123,6 +123,7 @@ async function getDatabyCity(city){
 //Добавление избранных городов
 async function addFavorites() {
   const city = document.querySelector('.add-favorite-location input').value.trim();
+  document.querySelector('.add-favorite-location input').value = '';
   try {
         const response = await( await fetch(serverUrl + favorites + `?q=${city}`, {
           method: 'POST' 
