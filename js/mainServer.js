@@ -128,12 +128,11 @@ async function addFavorites() {
         const response = await( await fetch(serverUrl + favorites + `?q=${city}`, {
           method: 'POST' 
         })).json();
-        if(response.name !== undefined){
+        if(response.name !== undefined)
            displayWeatherByCity(response);
-        }
-        else window.alert("Такой город уже есть")
+        else window.alert("Такой город уже есть");
   }catch (err) {
-    window.alert("City not found")
+    window.alert("City not found");
   } 
 }
 
@@ -177,9 +176,8 @@ async function defaultAdd() {
       method: 'GET'
     })).json();
 
-  for (let i = 0; i < data.length; i+=1){
-      await displayWeatherByCity(data[i]);
-  }
+  for (let i = 0; i < data.length; i+=1)
+    await displayWeatherByCity(data[i]);
 }
 
 function pressEnter() {
